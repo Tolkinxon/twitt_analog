@@ -4,9 +4,10 @@ import './PostList.css'
 const PostList = ({posts}) => {
 
   const elements = posts.map(item => {
+    const {id, ...itemProps} = item
     return (
-      <li className="list-group-item">
-        <PostListItem  label={item.label} important={item.important}/>
+      <li key={id} className="list-group-item">
+        <PostListItem  {...itemProps}/>
       </li>
     )
   })

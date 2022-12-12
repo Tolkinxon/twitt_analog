@@ -8,9 +8,9 @@ import './App.css'
 const App = () => {
 
   const data = [
-    {label: "I need to learn VueJs", important: true},
-    {label: "I need to learn ReactJs", important: false},
-    {label: "I need to learn NodeJs", important: false},
+    {label: "I need to learn VueJs", important: true, id: 'qa'},
+    {label: "I need to learn ReactJs", important: false, id: 'qb'},
+    {label: "I need to learn NodeJs", important: false, id: 'qf'},
   ]
 
   return (

@@ -30,18 +30,13 @@
   text-align: center;
   line-height: 35px;
   font-size: 16px;
+  color: white;
 }
 
-/* {
-  line-height: 35px;
-  cursor: pointer;
-  user-select: none;
-  transiton: 0.5s all;
-} */
-
 .app-list-item.like .fa-heart {
-  opacity: 1;
-  transform: translateX(0px);
+  /* opacity: 1;
+  transform: translateX(0px); */
+  color: red;
 }
 
 .app-list-item.important .app-list-item-label {

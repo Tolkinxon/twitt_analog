@@ -1,60 +1,43 @@
 import './PostListItem.css'
 import React from 'react'
 
-export default class PostListItem extends React.Component{
-
-  state = {
-    important: false,
-    like: false
-  }
-
-  onImportant = () => {
-    this.setState({important: !this.state.important})
-
-  }
-
-  
-  onLike = () => {
-    this.setState({like: !this.state.like})
-
-  }
-
+export default class PostListItem extends React.Component {
   render() {
-    const {label, onDelete} = this.props
-    const {important, like} = this.state
+    const {
+      label,
+      onDelete,
+      onToggleImportant,
+      onToggleLiked,
+      important,
+      like,
+    } = this.props
 
-    let classnames = "app-list-item d-flex justify-content-between"
+    let classnames = 'app-list-item d-flex justify-content-between'
 
-    if(important){
+    if (important) {
       classnames += ' important'
     }
 
-    if(like){
+    if (like) {
       classnames += ' like'
     }
 
-    return(
+    return (
       <div className={classnames}>
-      <span className="app-list-item-label " onClick={this.onLike}>{label}</span>
-      <div className="d-flex justify-content-center align-items-center">
-        <button 
-          type='button'
-          className="btn-star btn-sm"
-          onClick={this.onImportant}>
-          <i className="fa fa-star"></i>
-        </button>
-        <button 
+        <span className="app-list-item-label " onClick={onToggleLiked} >{label}</span>
+        <div className="d-flex justify-content-center align-items-center">
+          <button 
           type="button" 
-          className="btn-trash btn-sm" 
-          onClick={onDelete}>
-          <i className="fa fa-trash"></i>
-        </button>
-        <i className="fas fa-heart"></i>
+          className="btn-star btn-sm"
+          onClick={onToggleImportant}>
+            <i className="fa fa-star"></i>
+          </button>
+          <button type="button" className="btn-trash btn-sm" onClick={onDelete}>
+            <i className="fa fa-trash"></i>
+          </button>
+          <i className="fas fa-heart"></i>
+        </div>
       </div>
-    </div>
-
     )
   }
 }
-
-

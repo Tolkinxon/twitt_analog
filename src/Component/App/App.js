@@ -32,6 +32,7 @@ export default class App extends React.Component {
     const newItem = {
       label: body,
       important: false,
+      like: false,
       id: this.state.maxId,
     }
     this.setState({ maxId: this.state.maxId + 1 })

@@ -19,16 +19,14 @@ export default class PostAddForm extends React.Component{
       this.setState({text: a.target.value})
   }
 
-  // onSubmit(a){
-  //   a.target.preventDefault()
-  //   this.props.addItem(this.state.text)
-  // }
 
+onSubmit = () => {
+  this.props.addItem(this.state.text)
+  this.setState({text: ''})
+}
 
 
   render(){
-
-    const {addItem} = this.props
    
   return (
     <div className="bottom-panel d-flex" >
@@ -42,7 +40,7 @@ export default class PostAddForm extends React.Component{
       <button 
       type="button" 
       className="btn btn-outline-secondary"
-      onClick={() => {addItem(this.state.text)}}
+      onClick={this.onSubmit}
       >
         Add Post
       </button>

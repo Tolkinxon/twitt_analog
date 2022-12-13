@@ -14,6 +14,7 @@ export default class App extends React.Component {
       { label: 'I need to learn NodeJs', important: false, like: false, id: 3 },
     ],
     maxId: 4,
+    term: ''
   }
 
   deleteItem = (id) => {
@@ -68,9 +69,20 @@ export default class App extends React.Component {
     })
   }
 
+
+  searchPost = (items, term) => {
+    if(items.length === 0){
+      return items
+    }
+  return items.filter((item) => {return item.label.indexOf(term) > -1})
+  }
+
   render() {
-    const liked = this.state.data.filter(item => item.like).length
-    const posts = this.state.data.length
+    const {data, term} = this.state
+    const liked = data.filter(item => item.like).length
+    const posts = data.length
+
+    const visiblePosts = this.searchPost(data, term)
     return (
       <div className="app">
         <AppHeader liked={liked} posts={posts} />
@@ -79,7 +91,7 @@ export default class App extends React.Component {
           <PostStatusFilter />
         </div>
         <PostList
-          posts={this.state.data}
+          posts={visiblePosts}
           onDelete={this.deleteItem}
           onToggleImportant={this.onToggleImportant}
           onToggleLiked={this.onToggleLiked}
